@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+--vim.g.have_nerd_font = false
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -151,6 +151,8 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
+vim.opt.shiftwidth = 2
+
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -206,6 +208,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.wo.relativenumber = true
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -231,26 +234,27 @@ vim.opt.rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup('plugins', {
   ui = {
+    icons = {},
     -- If you are using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-    icons = vim.g.have_nerd_font and {} or {
-      cmd = '⌘',
-      config = '🛠',
-      event = '📅',
-      ft = '📂',
-      init = '⚙',
-      keys = '🗝',
-      plugin = '🔌',
-      runtime = '💻',
-      require = '🌙',
-      source = '📄',
-      start = '🚀',
-      task = '📌',
-      lazy = '💤 ',
-    },
+    --  icons = vim.g.have_nerd_font and {} or {
+    --  cmd = '⌘',
+    -- config = '🛠',
+    -- event = '📅',
+    -- ft = '📂',
+    -- init = '⚙',
+    -- keys = '🗝',
+    -- plugin = '🔌',
+    -- runtime = '💻',
+    -- require = '🌙',
+    -- source = '📄',
+    -- start = '🚀',
+    -- task = '📌',
+    -- lazy = '💤 ',
+    -- },
   },
 })
--- require('lazy').setup()
+--require('lazy').setup()
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
