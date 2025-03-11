@@ -199,6 +199,7 @@ return {
         gopls = {
           settings = {
             gopls = {
+              gofumpt = true,
               hints = {
                 assignVariableTypes = true,
                 compositeLiteralFields = true,
@@ -211,6 +212,11 @@ return {
               },
             },
           },
+        },
+
+        templ = {},
+        html = {
+          file_types = { 'html', 'templ', 'tmpl' },
         },
 
         -- pyright = {},

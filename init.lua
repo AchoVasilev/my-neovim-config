@@ -192,8 +192,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 vim.keymap.set({ 'x', 'n', 'i', 's' }, '<C-s>', '<cmd>w<cr><esc>', { noremap = true, desc = 'Save file' })
+vim.keymap.set('n', '<leader>tt', '<cmd>:b term<cr>', { desc = 'Toggle previously open terminal' })
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
