@@ -216,7 +216,7 @@ return {
 
         templ = {},
         html = {
-          file_types = { 'html', 'templ', 'tmpl' },
+          file_types = { 'html', 'templ', 'tmpl', 'htmlangular' },
         },
 
         -- pyright = {},
@@ -252,6 +252,8 @@ return {
             },
           },
         },
+
+        cssls = {},
       }
 
       -- Ensure the servers and tools above are installed
