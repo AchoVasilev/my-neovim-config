@@ -110,6 +110,7 @@ return {
           map('<leader>gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('<leader>gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
           map('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat')
+          map('<leader>gr', vim.lsp.buf.references, '[G]oto [R]eferences')
 
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
