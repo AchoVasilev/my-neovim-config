@@ -38,6 +38,7 @@ return {
         css = { 'prettier' },
         scss = { 'prettier' },
         html = { 'prettier' },
+        templ = { 'prettier' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
