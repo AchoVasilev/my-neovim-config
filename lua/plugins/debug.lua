@@ -7,6 +7,7 @@
 -- kickstart.nvim and not kitchen-sink.nvim ;)
 
 return {
+  'mxsdev/nvim-dap-vscode-js',
   -- NOTE: Yes, you can install new plugins here!
   'mfussenegger/nvim-dap',
   -- NOTE: And you can specify dependencies as well
@@ -82,6 +83,34 @@ return {
     local dapui = require 'dapui'
 
     require('dap-go').setup()
+    require('dap-vscode-js').setup {
+      debugger_path = vim.fn.stdpath 'data' .. '/mason/packages/js-debug-adapter',
+      adapters = { 'pwa-node', 'pwa-chrome', 'pwa-firefox', 'pwa-msedge' },
+    }
+    for _, language in ipairs { 'typescript', 'javascript' } do
+      dap.configurations[language] = {
+        {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
+          sourceMaps = true,
+          protocol = 'inspector', -- Ensure using inspector protocol
+          console = 'integratedTerminal',
+        },
+        {
+          type = 'pwa-node',
+          request = 'attach',
+          name = 'Attach to process',
+          processId = require('dap.utils').pick_process,
+          cwd = '${workspaceFolder}',
+          sourceMaps = true,
+          protocol = 'inspector',
+          console = 'integratedTerminal',
+        },
+      }
+    end
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
